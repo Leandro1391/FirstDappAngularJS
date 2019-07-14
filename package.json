@@ -1,0 +1,35 @@
+{
+  "name": "first-dapp-angular1.7",
+  "version": "1.0.0",
+  "description": "First dapp using framework AngularJS 1.7, Web3 And Solidity",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --open --hot --mode development",
+    "build": "webpack --progress --hide-modules --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leandro1391/first-dapp-angular1.7.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Leandro1391/first-dapp-angular1.7/issues"
+  },
+  "homepage": "https://github.com/Leandro1391/first-dapp-angular1.7#readme",
+  "devDependencies": {
+    "css-loader": "^3.0.0",
+    "raw-loader": "^3.0.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "dependencies": {
+    "angular": "^1.7.8",
+    "bootstrap-css-only": "^4.3.1"
+  }
+}
