@@ -1,3 +1,53 @@
+<body class="container-fluid">
+      <h1>Ejercicio Conecci&oacute;n contra la Blockchain</h1>
+      <h3>Creando nuestra primera dApp!</h3>
+      <div class="table-responsive" ng-controller="controlVote">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Opciones</th>
+              <th>Votos del candidato</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Carolina</td>
+              <td id="option-1"> {{Carolina}} </td>
+            </tr>
+            <tr>
+              <td>Mario</td>
+              <td id="option-2"> {{Mario}} </td>
+            </tr>
+            <tr>
+              <td>Leonardo</td>
+              <td id="option-3"> {{Leonardo}} </td>
+            </tr>
+            <tr>
+              <td>Joaquin</td>
+              <td id="option-4"> {{Joaquin}} </td>
+            </tr>
+          </tbody>
+        </table>
+
+            <div class="col text-center">
+              <!-- <input type="text" id="candidato" /> -->
+
+              <div class="form-group">
+                <label for="sel1">Seleccionar candidato:</label>
+                <select class="form-control" id="sel1">
+                  <option>Carolina</option>
+                  <option>Mario</option>
+                  <option>Leonardo</option>
+                  <option>Joaquin</option>
+                </select>
+              </div>
+
+              <a name="guardar" ng-click="Guardar()" class="btn btn-primary">Votar candidato</a>
+              </div>
+
+      </div>
+
+
 <!-- <div class="container-fluid">
         <div class="jumbotron">
           <h1> Oddbytes</h1>
@@ -5,40 +55,3 @@
           <span>Hola Mica</span>
         </div>
       </div> -->
-
-      <body class="container-fluid">
-            <h1>Ejercicio Conecci&oacute;n contra la Blockchain</h1>
-            <h3>Creando nuestra primera dApp!</h3>
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Opciones</th>
-                    <th>Votos del candidato</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Carolina</td>
-                    <td id="option-1"></td>
-                  </tr>
-                  <tr>
-                    <td>Mario</td>
-                    <td id="option-2"></td>
-                  </tr>
-                  <tr>
-                    <td>Leonardo</td>
-                    <td id="option-3"></td>
-                  </tr>
-                  <tr>
-                    <td>Joaquin</td>
-                    <td id="option-4"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="col text-center">
-                    <input type="text" id="candidato" />
-                    <a href="#" onclick="App.votarCandidato()" class="btn btn-primary">Votar candidato</a>
-            </div>
