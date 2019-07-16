@@ -12,15 +12,15 @@
           <tbody>
             <tr>
               <td>Carolina</td>
-              <td id="option-1"> {{Carolina}} </td>
+              <td id="option-1" ng-model="option1"> {{Carolina}} </td>
             </tr>
             <tr>
               <td>Mario</td>
-              <td id="option-2"> {{Mario}} </td>
+              <td id="option-2" ng-model="option2"> {{Mario}} </td>
             </tr>
             <tr>
               <td>Leonardo</td>
-              <td id="option-3"> {{Leonardo}} </td>
+              <td id="option-3" ng-model="option1"> {{Leonardo}} </td>
             </tr>
             <tr>
               <td>Joaquin</td>
@@ -34,15 +34,11 @@
 
               <div class="form-group">
                 <label for="sel1">Seleccionar candidato:</label>
-                <select class="form-control" id="sel1">
-                  <option>Carolina</option>
-                  <option>Mario</option>
-                  <option>Leonardo</option>
-                  <option>Joaquin</option>
+                <select class="form-control" id="sel1" ng-init="selectName = candidates[0]" ng-model="selectName" ng-options="x.name for x in candidates">
                 </select>
               </div>
 
-              <a name="guardar" ng-click="Guardar()" class="btn btn-primary">Votar candidato</a>
+              <a name="guardar" ng-click="Guardar(selectName)" class="btn btn-primary">Votar candidato</a>
               </div>
 
       </div>
