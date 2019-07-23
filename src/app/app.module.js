@@ -2,12 +2,21 @@ import 'bootstrap-css-only';
 import angular from 'angular';
 import appComponent from './app.component';
 import ComponentsModule from './components/components';
+import getWeb3 from './app.getWeb3';
+import VotacionContract from "./votacion";
 
 
 const myApp = angular.module('app', [ComponentsModule.name]).component('app', appComponent);
 
-myApp.controller('controlVote', ['$scope' ,function($scope) {
+myApp.controller('controlVote', ['$scope' ,'notify' , async function($scope, notify) {
   let voteCarol = 0 , voteMario = 0 , voteLeo = 0 , VoteJoa = 0;
+
+  this.web3 = await getWeb3();
+  console.log("Version de web3 en la dependencia dev: " + this.web3.version);
+
+  var account = (await this.web3.eth.getAccounts())[0];
+  console.log("Cuenta 0: " + account);
+
 
   $scope.candidates = [
     {name : "Carolina"},
@@ -20,6 +29,16 @@ myApp.controller('controlVote', ['$scope' ,function($scope) {
   $scope.Mario = voteMario;
   $scope.Leonardo = voteLeo;
   $scope.Joaquin = VoteJoa;
+
+ 
+
+  // var init = () => {
+  //   web3Service.getAccounts().then(function(accs) {
+  //     $scope.accounts = accs;
+  //   }, function(err) {
+  //     console.log(err);
+  //   });
+  // };
 
   $scope.Guardar = function(candidato) {
 
@@ -46,8 +65,26 @@ myApp.controller('controlVote', ['$scope' ,function($scope) {
     $scope.Mario = voteMario;
     $scope.Leonardo = voteLeo;
     $scope.Joaquin = VoteJoa;
-    console.log(voteCarol);
+    
+    notify(candidato);
 
   }
 
-}])
+  // angular.element(document).ready(function() {
+  //   init();
+  // });
+
+}]);
+
+myApp.factory('notify', ['$window', function(win) {
+  
+  return function(msg) {
+      // web3 = await getWeb3();
+      win.alert("Se ha realizado un voto al candidato/a: " + msg.name);
+      // var account = (await this.web3.eth.getAccounts())[0];
+      // console.log(account);
+  }
+
+}]);
+
+// myApp.factory

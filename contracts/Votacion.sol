@@ -15,12 +15,13 @@ contract Votacion {
 
  //es byte y no string porque sino tengo que hacer una conversion y eso consume más gas
   function totalVotesFor(bytes32 candidate) public view returns (uint8) {
-    require(validCandidate(candidate), "Some Error");
+    require(validCandidate(candidate), "The candidate dosen't exists");
     return votesReceived[candidate];
   }
 
-  function voteForCandidate(bytes32 candidate) public {
-    require(validCandidate(candidate), "Some Error");
+  function voteForCandidate(bytes32 candidate) public payable {
+    require(msg.value > 0, "You must send ether");
+    require(validCandidate(candidate), "The candidate dosen't exists");
     votesReceived[candidate] += 1;
   }
 
